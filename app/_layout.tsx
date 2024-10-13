@@ -6,7 +6,6 @@ import "react-native-reanimated";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Drawer from "expo-router/drawer";
 import {
-  Button,
   Image,
   ScrollView,
   StyleSheet,
@@ -16,17 +15,25 @@ import {
 } from "react-native";
 import Svg, { Circle, Path } from "react-native-svg";
 import { router } from "expo-router";
-import { DrawerItem } from "@react-navigation/drawer";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-const informationSectionOne = ["Kontak", "Aturan", "Ketentuan"];
+const informationSectionOne = [
+  { key: "kontak", name: "Kontak" },
+  { key: "aturan", name: "Aturan" },
+  { key: "ketentuan", name: "Ketentuan" },
+];
 
-const informationSectionTwo = ["Kebijakan", "Lahgue+", "Koin"];
+const informationSectionTwo = [
+  { key: "kebijakan", name: "Kebijakan" },
+  { key: "lahgue+", name: "Lahgue+" },
+  { key: "koin", name: "Koin" },
+];
 
 const mainMenu = [
   {
+    key: "home",
     name: "Home",
     image: (
       <Svg
@@ -45,6 +52,7 @@ const mainMenu = [
     ),
   },
   {
+    key: "fresh",
     name: "Fresh",
     image: (
       <Svg
@@ -64,6 +72,7 @@ const mainMenu = [
     ),
   },
   {
+    key: "trending",
     name: "Trending",
     image: (
       <Svg
@@ -82,6 +91,7 @@ const mainMenu = [
     ),
   },
   {
+    key: "topic",
     name: "Topik",
     image: (
       <Svg
@@ -107,6 +117,7 @@ const mainMenu = [
 
 const otherMeme = [
   {
+    key: "peringkat",
     name: "Peringkat",
     image: (
       <Svg
@@ -125,6 +136,7 @@ const otherMeme = [
     ),
   },
   {
+    key: "tersimpan",
     name: "Tersimpan",
     image: (
       <Svg
@@ -145,6 +157,7 @@ const otherMeme = [
     ),
   },
   {
+    key: "acak",
     name: "Acak",
     image: (
       <Svg
@@ -170,6 +183,7 @@ const otherMeme = [
 
 const exploreMeme = [
   {
+    key: "donatur",
     name: "Donatur",
     image: (
       <Svg
@@ -188,6 +202,7 @@ const exploreMeme = [
     ),
   },
   {
+    key: "medali",
     name: "Medali",
     image: (
       <Svg
@@ -210,6 +225,7 @@ const exploreMeme = [
     ),
   },
   {
+    key: "tokokoin",
     name: "Toko koin",
     image: (
       <Svg
@@ -232,6 +248,7 @@ const exploreMeme = [
     ),
   },
   {
+    key: "discord",
     name: "Discord",
     image: (
       <Svg
@@ -330,11 +347,6 @@ const exploreSection = [
 ];
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
   box: {
     color: "#ffffff",
     justifyContent: "center",
@@ -344,10 +356,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     margin: 16,
     padding: 16,
-  },
-  text: {
-    fontSize: 16,
-    color: "#ffffff",
   },
 });
 
@@ -426,6 +434,7 @@ export default function RootLayout() {
         </View>
         {mainMenu.map((item) => (
           <TouchableOpacity
+            key={item.key}
             style={[
               {
                 paddingHorizontal: 24,
@@ -433,9 +442,9 @@ export default function RootLayout() {
                 alignItems: "center",
                 paddingVertical: 12,
               },
-              activeDrawer == item.name && { backgroundColor: "#65a4ec" },
+              activeDrawer == item.key && { backgroundColor: "#65a4ec" },
             ]}
-            onPress={() => setActiveDrawer(item.name)}
+            onPress={() => setActiveDrawer(item.key)}
           >
             {item.image}
             <Text style={{ color: "#ffffff", fontWeight: 700, marginLeft: 16 }}>
@@ -480,6 +489,7 @@ export default function RootLayout() {
             <View style={{ height: 8 }} />
             {otherMeme.map((item) => (
               <TouchableOpacity
+                key={item.key}
                 style={[
                   {
                     paddingHorizontal: 24,
@@ -487,9 +497,9 @@ export default function RootLayout() {
                     flexDirection: "row",
                     alignItems: "center",
                   },
-                  activeDrawer == item.name && { backgroundColor: "#65a4ec" },
+                  activeDrawer == item.key && { backgroundColor: "#65a4ec" },
                 ]}
-                onPress={() => setActiveDrawer(item.name)}
+                onPress={() => setActiveDrawer(item.key)}
               >
                 {item.image}
                 <Text
@@ -538,6 +548,7 @@ export default function RootLayout() {
             <View style={{ height: 8 }} />
             {exploreMeme.map((item) => (
               <TouchableOpacity
+                key={item.key}
                 style={[
                   {
                     paddingHorizontal: 24,
@@ -545,9 +556,9 @@ export default function RootLayout() {
                     flexDirection: "row",
                     alignItems: "center",
                   },
-                  activeDrawer == item.name && { backgroundColor: "#65a4ec" },
+                  activeDrawer == item.key && { backgroundColor: "#65a4ec" },
                 ]}
-                onPress={() => setActiveDrawer(item.name)}
+                onPress={() => setActiveDrawer(item.key)}
               >
                 {item.image}
                 <Text
@@ -573,6 +584,7 @@ export default function RootLayout() {
         </Text>
         {exploreSection.map((item) => (
           <TouchableOpacity
+            key={item.id}
             style={[
               {
                 flexDirection: "row",
@@ -581,9 +593,9 @@ export default function RootLayout() {
                 alignItems: "center",
                 justifyContent: "space-between",
               },
-              activeDrawer == item.name && { backgroundColor: "#65a4ec" },
+              activeDrawer == item.id && { backgroundColor: "#65a4ec" },
             ]}
-            onPress={() => setActiveDrawer(item.name)}
+            onPress={() => setActiveDrawer(item.id)}
           >
             <Image
               style={{ width: 24, height: 24 }}
@@ -646,8 +658,9 @@ export default function RootLayout() {
           >
             {informationSectionOne.map((item) => (
               <TouchableOpacity
+                key={item.key}
                 onPress={() => {
-                  setActiveDrawer(item);
+                  setActiveDrawer(item.key);
                 }}
               >
                 <Text
@@ -657,10 +670,10 @@ export default function RootLayout() {
                       fontSize: 14,
                       marginBottom: 4,
                     },
-                    activeDrawer == item && { color: "#65a4ec" },
+                    activeDrawer == item.key && { color: "#65a4ec" },
                   ]}
                 >
-                  {item}
+                  {item.name}
                 </Text>
               </TouchableOpacity>
             ))}
@@ -676,8 +689,9 @@ export default function RootLayout() {
           >
             {informationSectionTwo.map((item) => (
               <TouchableOpacity
+                key={item.key}
                 onPress={() => {
-                  setActiveDrawer(item);
+                  setActiveDrawer(item.key);
                 }}
               >
                 <Text
@@ -687,10 +701,10 @@ export default function RootLayout() {
                       fontSize: 14,
                       marginBottom: 4,
                     },
-                    activeDrawer == item && { color: "#65a4ec" },
+                    activeDrawer == item.key && { color: "#65a4ec" },
                   ]}
                 >
-                  {item}
+                  {item.name}
                 </Text>
               </TouchableOpacity>
             ))}
@@ -711,7 +725,7 @@ export default function RootLayout() {
             headerRightContainerStyle: { padding: 12, marginRight: 6 },
             headerRight(props) {
               return (
-                <TouchableOpacity onPress={() => router.navigate("/search")}>
+                <TouchableOpacity>
                   <Svg
                     width={24}
                     height={24}
