@@ -7,8 +7,22 @@ const Tab = createMaterialTopTabNavigator();
 export default function FriendTabScreen() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Topik" component={TopicScreen} />
-      <Tab.Screen name="Sudah Gabung" component={GroupScreen} />
+      <Tab.Screen
+        options={{
+          tabBarLabel: "Topik",
+          tabBarLabelStyle: { textTransform: 'none', fontWeight: 700, fontSize: 14 },
+        }}
+        name="Topik"
+        component={TopicScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: "Sudah Gabung",
+          tabBarLabelStyle: { textTransform: 'none', fontWeight: 700, fontSize: 14 },
+        }}
+        name="Sudah Gabung"
+        component={GroupScreen}
+      />
     </Tab.Navigator>
   );
 }

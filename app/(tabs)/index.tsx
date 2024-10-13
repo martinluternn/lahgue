@@ -7,10 +7,31 @@ const Tab = createMaterialTopTabNavigator();
 
 export default function HomeTabScreen() {
   return (
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Fresh" component={FreshScreen} />
-        <Tab.Screen name="Trending" component={TrendingScreen} />
-      </Tab.Navigator>
+    <Tab.Navigator>
+      <Tab.Screen
+        options={{
+          tabBarLabel: "Home",
+          tabBarLabelStyle: { textTransform: 'none', fontWeight: 700, fontSize: 14 },
+        }}
+        name="Home"
+        component={HomeScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: "Fresh",
+          tabBarLabelStyle: { textTransform: 'none', fontWeight: 700, fontSize: 14 },
+        }}
+        name="Fresh"
+        component={FreshScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: "Trending",
+          tabBarLabelStyle: { textTransform: 'none', fontWeight: 700, fontSize: 14 },
+        }}
+        name="Trending"
+        component={TrendingScreen}
+      />
+    </Tab.Navigator>
   );
 }

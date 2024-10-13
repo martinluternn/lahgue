@@ -14,7 +14,6 @@ import {
   View,
 } from "react-native";
 import Svg, { Circle, Path } from "react-native-svg";
-import { router } from "expo-router";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();

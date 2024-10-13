@@ -1,9 +1,10 @@
-import { Text, View } from 'react-native';
+import ContentViewComponent from "@/components/ContentView";
+import { ScrollView } from "react-native";
 
 export default function TrendingScreen() {
   return (
-    <View>
-      <Text>Welcome to the Trending Screen!</Text>
-    </View>
+    <ScrollView>
+      <ContentViewComponent />
+    </ScrollView>
   );
 }
