@@ -1,6 +1,7 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import TopicScreen from "../friend/topic";
 import GroupScreen from "../friend/group";
+import tabsStyles from "../tabStyle";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -10,7 +11,7 @@ export default function FriendTabScreen() {
       <Tab.Screen
         options={{
           tabBarLabel: "Topik",
-          tabBarLabelStyle: { textTransform: 'none', fontWeight: 700, fontSize: 14 },
+          ...tabsStyles.tabOption,
         }}
         name="Topik"
         component={TopicScreen}
@@ -18,7 +19,7 @@ export default function FriendTabScreen() {
       <Tab.Screen
         options={{
           tabBarLabel: "Sudah Gabung",
-          tabBarLabelStyle: { textTransform: 'none', fontWeight: 700, fontSize: 14 },
+          ...tabsStyles.tabOption,
         }}
         name="Sudah Gabung"
         component={GroupScreen}

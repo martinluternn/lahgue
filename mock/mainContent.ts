@@ -1,0 +1,66 @@
+import { MainContentEntity } from "@/entity/mainContentEntity";
+
+const mainContent: MainContentEntity[] = [
+  {
+    key: "post1",
+    profileName: "drvx_official",
+    lastTime: "1 hari",
+    title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
+    tags: ["random", "aneh"],
+    upVoteCount: 20,
+    commentCount: 5,
+    image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
+  },
+  {
+    key: "post2",
+    profileName: "drvx_official",
+    lastTime: "1 hari",
+    title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
+    tags: ["random", "aneh"],
+    upVoteCount: 20,
+    commentCount: 5,
+    image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
+  },
+  {
+    key: "post3",
+    profileName: "drvx_official",
+    lastTime: "1 hari",
+    title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
+    tags: ["random", "aneh"],
+    upVoteCount: 20,
+    commentCount: 5,
+    image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
+  },
+  {
+    key: "post4",
+    profileName: "drvx_official",
+    lastTime: "1 hari",
+    title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
+    tags: ["random", "aneh"],
+    upVoteCount: 20,
+    commentCount: 5,
+    image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
+  },
+  {
+    key: "post5",
+    profileName: "drvx_official",
+    lastTime: "1 hari",
+    title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
+    tags: ["random", "aneh"],
+    upVoteCount: 20,
+    commentCount: 5,
+    image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
+  },
+  {
+    key: "post6",
+    profileName: "drvx_official",
+    lastTime: "1 hari",
+    title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
+    tags: ["random", "aneh"],
+    upVoteCount: 20,
+    commentCount: 5,
+    image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
+  },
+];
+
+export default mainContent;

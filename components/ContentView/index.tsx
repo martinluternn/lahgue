@@ -2,116 +2,34 @@ import { useState } from "react";
 import { Image, View, Text, TouchableOpacity } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import LoginWall from "../LoginWall";
+import mainContent from "@/mock/mainContent";
+import ThemeColor from "@/themes/color";
+import contentViewStyle from "./style";
+import SpaceMedium from "../SpaceMedium";
+import PostDivider from "../PostDivider";
 
 export default function ContentViewComponent() {
   const [modalVisible, setModalVisible] = useState(false);
-  
-  const mainContent = [
-    {
-      key: "post1",
-      profileName: "drvx_official",
-      lastTime: "1 hari",
-      title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
-      tags: ["random", "aneh"],
-      upVoteCount: 20,
-      commentCount: 5,
-      image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
-    },
-    {
-      key: "post2",
-      profileName: "drvx_official",
-      lastTime: "1 hari",
-      title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
-      tags: ["random", "aneh"],
-      upVoteCount: 20,
-      commentCount: 5,
-      image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
-    },
-    {
-      key: "post3",
-      profileName: "drvx_official",
-      lastTime: "1 hari",
-      title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
-      tags: ["random", "aneh"],
-      upVoteCount: 20,
-      commentCount: 5,
-      image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
-    },
-    {
-      key: "post4",
-      profileName: "drvx_official",
-      lastTime: "1 hari",
-      title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
-      tags: ["random", "aneh"],
-      upVoteCount: 20,
-      commentCount: 5,
-      image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
-    },
-    {
-      key: "post5",
-      profileName: "drvx_official",
-      lastTime: "1 hari",
-      title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
-      tags: ["random", "aneh"],
-      upVoteCount: 20,
-      commentCount: 5,
-      image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
-    },
-    {
-      key: "post6",
-      profileName: "drvx_official",
-      lastTime: "1 hari",
-      title: "WADEFAKK🗿💀 This Mf +999999e AURA🗿💀",
-      tags: ["random", "aneh"],
-      upVoteCount: 20,
-      commentCount: 5,
-      image: "https://cache.lahelu.com/topic-TJLBOsId9-44791",
-    },
-  ];
 
   return (
     <>
       {mainContent.map((item) => (
         <View key={item.key}>
           <TouchableOpacity>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                padding: 16,
-              }}
-            >
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <TouchableOpacity
-                  style={{
-                    height: 30,
-                    width: 30,
-                    minHeight: 30,
-                    minWidth: 30,
-                    borderRadius: 999,
-                    backgroundColor: "#55A4FF",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
+            <View style={contentViewStyle.container}>
+              <View style={contentViewStyle.subContainer}>
+                <TouchableOpacity style={contentViewStyle.imageProfile}>
                   <Image
-                    style={{ height: 30, width: 30, borderRadius: 999 }}
+                    style={contentViewStyle.imageProfileInside}
                     source={require("@/assets/images/ic-logo.jpeg")}
                   />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                  <Text
-                    style={{
-                      fontSize: 12,
-                      color: "#e4e4e4",
-                      fontWeight: 700,
-                      marginLeft: 8,
-                    }}
-                  >
+                  <Text style={contentViewStyle.titleProfile}>
                     {item.profileName}
                   </Text>
                 </TouchableOpacity>
-                <Text style={{ fontSize: 12, color: "silver" }}>
+                <Text style={contentViewStyle.date}>
                   {" · " + item.lastTime}
                 </Text>
               </View>
@@ -119,8 +37,8 @@ export default function ContentViewComponent() {
                 <Svg
                   width={16}
                   height={16}
-                  fill="#e4e4e4"
-                  stroke="#e4e4e4"
+                  fill={ThemeColor.lightGrey}
+                  stroke={ThemeColor.lightGrey}
                   strokeWidth={0}
                   viewBox="0 0 24 24"
                 >
@@ -131,46 +49,20 @@ export default function ContentViewComponent() {
                 </Svg>
               </TouchableOpacity>
             </View>
-            <Text
-              style={{
-                fontSize: 16,
-                color: "#e4e4e4",
-                fontWeight: "bold",
-                marginBottom: 8,
-                paddingHorizontal: 16,
-              }}
-            >
-              {item.title}
-            </Text>
+            <Text style={contentViewStyle.postTitle}>{item.title}</Text>
             <Image
-              style={{ width: "100%", height: 400 }}
+              style={contentViewStyle.post}
               source={{ uri: item.image }}
               resizeMode="cover"
             />
-            <View
-              style={{
-                flexDirection: "row",
-                paddingVertical: 8,
-                paddingHorizontal: 16,
-              }}
-            >
+            <View style={contentViewStyle.sectionOnePost}>
               <TouchableOpacity>
-                <View
-                  style={{
-                    borderRadius: 999,
-                    backgroundColor: "#dd952a",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    paddingHorizontal: 8,
-                    paddingVertical: 2,
-                    flexDirection: "row",
-                  }}
-                >
+                <View style={contentViewStyle.sawerContainer}>
                   <Svg
                     width={16}
                     height={16}
-                    fill="#ffffff"
-                    stroke="#ffffff"
+                    fill={ThemeColor.white}
+                    stroke={ThemeColor.white}
                     strokeWidth={0}
                     viewBox="0 0 24 24"
                   >
@@ -179,39 +71,20 @@ export default function ContentViewComponent() {
                       d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 14.915V18h-2v-1.08c-2.339-.367-3-2.002-3-2.92h2c.011.143.159 1 2 1 1.38 0 2-.585 2-1 0-.324 0-1-2-1-3.48 0-4-1.88-4-3 0-1.288 1.029-2.584 3-2.915V6.012h2v1.109c1.734.41 2.4 1.853 2.4 2.879h-1l-1 .018C13.386 9.638 13.185 9 12 9c-1.299 0-2 .516-2 1 0 .374 0 1 2 1 3.48 0 4 1.88 4 3 0 1.288-1.029 2.584-3 2.915z"
                     />
                   </Svg>
-                  <Text
-                    style={{
-                      color: "#ffffff",
-                      fontWeight: 700,
-                      fontSize: 14,
-                      marginLeft: 8,
-                    }}
-                  >
-                    Sawer
-                  </Text>
+                  <Text style={contentViewStyle.titleSawer}>Sawer</Text>
                 </View>
               </TouchableOpacity>
               <View style={{ width: 8 }} />
               {item.tags.map((item) => (
                 <TouchableOpacity
                   key={item}
-                  style={{
-                    borderRadius: 999,
-                    borderColor: "#ffffff",
-                    borderWidth: 1,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    paddingHorizontal: 8,
-                    paddingVertical: 2,
-                    flexDirection: "row",
-                    marginRight: 8,
-                  }}
+                  style={contentViewStyle.tagsContainer}
                 >
                   <Svg
                     width={16}
                     height={16}
-                    fill="#ffffff"
-                    stroke="#ffffff"
+                    fill={ThemeColor.white}
+                    stroke={ThemeColor.white}
                     strokeWidth={0}
                     viewBox="0 0 24 24"
                   >
@@ -220,47 +93,21 @@ export default function ContentViewComponent() {
                       d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
                     />
                   </Svg>
-                  <Text
-                    style={{
-                      color: "#ffffff",
-                      fontWeight: 700,
-                      fontSize: 14,
-                      marginLeft: 8,
-                    }}
-                  >
-                    {item}
-                  </Text>
+                  <Text style={contentViewStyle.titleSawer}>{item}</Text>
                 </TouchableOpacity>
               ))}
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                paddingVertical: 8,
-                paddingHorizontal: 16,
-                justifyContent: "space-between",
-              }}
-            >
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View style={contentViewStyle.sectionTwoContainer}>
+              <View style={contentViewStyle.rowContainer}>
                 <TouchableOpacity
-                  style={{
-                    borderTopLeftRadius: 8,
-                    borderBottomLeftRadius: 8,
-                    borderColor: "#ffffff",
-                    borderWidth: 1,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    paddingHorizontal: 12,
-                    paddingVertical: 4,
-                    flexDirection: "row",
-                  }}
+                  style={contentViewStyle.upVote}
                   onPress={() => setModalVisible(true)}
                 >
                   <Svg
                     width={16}
                     height={16}
-                    fill="#ffffff"
-                    stroke="#ffffff"
+                    fill={ThemeColor.white}
+                    stroke={ThemeColor.white}
                     strokeWidth={0}
                     viewBox="0 0 24 24"
                   >
@@ -269,37 +116,19 @@ export default function ContentViewComponent() {
                       d="M12.781 2.375c-.381-.475-1.181-.475-1.562 0l-8 10A1.001 1.001 0 0 0 4 14h4v7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7h4a1.001 1.001 0 0 0 .781-1.625l-8-10zM15 12h-1v8h-4v-8H6.081L12 4.601 17.919 12H15z"
                     />
                   </Svg>
-                  <Text
-                    style={{
-                      color: "#ffffff",
-                      fontWeight: 700,
-                      fontSize: 14,
-                      marginLeft: 8,
-                    }}
-                  >
+                  <Text style={contentViewStyle.titleUpvote}>
                     {item.upVoteCount}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  style={{
-                    borderTopRightRadius: 8,
-                    borderBottomRightRadius: 8,
-                    borderColor: "#ffffff",
-                    borderWidth: 1,
-                    borderLeftWidth: 0,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    paddingHorizontal: 12,
-                    paddingVertical: 6,
-                    flexDirection: "row",
-                  }}
+                  style={contentViewStyle.downVote}
                   onPress={() => setModalVisible(true)}
                 >
                   <Svg
                     width={16}
                     height={16}
-                    fill="#ffffff"
-                    stroke="#ffffff"
+                    fill={ThemeColor.white}
+                    stroke={ThemeColor.white}
                     strokeWidth={0}
                     viewBox="0 0 24 24"
                   >
@@ -309,24 +138,12 @@ export default function ContentViewComponent() {
                     />
                   </Svg>
                 </TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    borderRadius: 8,
-                    borderColor: "#ffffff",
-                    borderWidth: 1,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    paddingHorizontal: 12,
-                    paddingVertical: 4,
-                    flexDirection: "row",
-                    marginLeft: 8,
-                  }}
-                >
+                <TouchableOpacity style={contentViewStyle.comment}>
                   <Svg
                     width={16}
                     height={16}
-                    fill="#ffffff"
-                    stroke="#ffffff"
+                    fill={ThemeColor.white}
+                    stroke={ThemeColor.white}
                     strokeWidth={0}
                     viewBox="0 0 24 24"
                   >
@@ -336,37 +153,17 @@ export default function ContentViewComponent() {
                       d="M20 2H4c-1.103 0-2 .897-2 2v18l5.333-4H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14H6.667L4 18V4h16v12z"
                     />
                   </Svg>
-                  <Text
-                    style={{
-                      color: "#ffffff",
-                      fontWeight: 700,
-                      fontSize: 14,
-                      marginLeft: 8,
-                    }}
-                  >
+                  <Text style={contentViewStyle.titleUpvote}>
                     {item.commentCount}
                   </Text>
                 </TouchableOpacity>
               </View>
-              <TouchableOpacity
-                style={{
-                  borderRadius: 8,
-                  borderColor: "#ffffff",
-                  borderWidth: 1,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  paddingHorizontal: 12,
-                  paddingVertical: 6,
-                  transform: [{ scaleX: -1 }],
-                  flexDirection: "row",
-                  marginLeft: 8,
-                }}
-              >
+              <TouchableOpacity style={contentViewStyle.bgComment}>
                 <Svg
                   width={16}
                   height={16}
-                  fill="#ffffff"
-                  stroke="#ffffff"
+                  fill={ThemeColor.white}
+                  stroke={ThemeColor.white}
                   strokeWidth={0}
                   viewBox="0 0 24 24"
                 >
@@ -377,9 +174,9 @@ export default function ContentViewComponent() {
                 </Svg>
               </TouchableOpacity>
             </View>
-            <View style={{ height: 16 }} />
+            <SpaceMedium />
           </TouchableOpacity>
-          <View style={{ backgroundColor: "#000000", height: 4 }} />
+          <PostDivider />
           {LoginWall(modalVisible, setModalVisible)}
         </View>
       ))}

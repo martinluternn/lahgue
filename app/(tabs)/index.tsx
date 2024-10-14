@@ -2,6 +2,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import HomeScreen from "../home/home";
 import FreshScreen from "../home/fresh";
 import TrendingScreen from "../home/trending";
+import tabsStyles from "../tabStyle";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -11,7 +12,7 @@ export default function HomeTabScreen() {
       <Tab.Screen
         options={{
           tabBarLabel: "Home",
-          tabBarLabelStyle: { textTransform: 'none', fontWeight: 700, fontSize: 14 },
+          ...tabsStyles.tabOption,
         }}
         name="Home"
         component={HomeScreen}
@@ -19,7 +20,7 @@ export default function HomeTabScreen() {
       <Tab.Screen
         options={{
           tabBarLabel: "Fresh",
-          tabBarLabelStyle: { textTransform: 'none', fontWeight: 700, fontSize: 14 },
+          ...tabsStyles.tabOption,
         }}
         name="Fresh"
         component={FreshScreen}
@@ -27,7 +28,7 @@ export default function HomeTabScreen() {
       <Tab.Screen
         options={{
           tabBarLabel: "Trending",
-          tabBarLabelStyle: { textTransform: 'none', fontWeight: 700, fontSize: 14 },
+          ...tabsStyles.tabOption,
         }}
         name="Trending"
         component={TrendingScreen}
