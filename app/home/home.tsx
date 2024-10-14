@@ -4,14 +4,14 @@ import homeStyles from "./style";
 
 export default function HomeScreen() {
   return (
-    <ScrollView>
+    <>
       <View style={homeStyles.box}>
         <Text>💰</Text>
         <Text style={homeStyles.title}>
           {"Kamu punya teman? Sini dapatkan koin gratis!"}
         </Text>
       </View>
-      <ContentViewComponent />
-    </ScrollView>
+      <ContentViewComponent feed={1} />
+    </>
   );
 }
